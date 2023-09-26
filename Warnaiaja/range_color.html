@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Warnaiaja</title>
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@500&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+
+        <div class="header">
+            <img href="#default" class="logo" src="Logo.svg" alt="logo Warnaiaja">
+            <div class="header-right">
+                <a href="index.html">Home</a>
+                <a href="color_check.html">Color Check</a>
+                <a href="color_page.html">Color</a>
+                <a class="active" href="#range">Range</a>
+                <a href="about.html">About</a>
+            </div>
+        </div>
+
+        <div class="rangeContent">
+            <div class="RB">
+                <h3>Background</h2>
+                <form name="bcolorFormR">
+                <input class="range" type="range" id="rangeRedB" value="255" min="0" max="255" style="background: #f00;" /><br>
+                <input class="range" type="range" id="rangeGreenB" value="255" min="0" max="255" style="background: #0f0;" /><br>
+                <input class="range" type="range" id="rangeBlueB" value="255" min="0" max="255" style="background: #00f;" />
+                </form>
+                <h3 id="kodergb" style="margin-top: 10px;"><span id="colorOutputB"></span></h3>
+            </div>
+            <div class="RF">
+                <h3>Font</h2>
+                <form name="fcolorFormR">
+                <input class="range" type="range" id="rangeRedF" value="0" min="0" max="255" style="background: #f00;" /><br>
+                <input class="range" type="range" id="rangeGreenF" value="0" min="0" max="255" style="background: #0f0;" /><br>
+                <input class="range" type="range" id="rangeBlueF" value="0" min="0" max="255" style="background: #00f;" />
+                </form>
+                <h3 style="margin-top: 10px;"><span id="colorOutputF"></span></h3>
+            </div>
+            <div class="TI">
+                <textarea id="textInput" name="selectedcolorr" value="" placeholder="Enter your text"></textarea>
+            </div>
+            <div class="Rtutor">
+                <h3>Cara Penggunaan</h3>
+                <table>
+                    <tr>
+                        <td><p>1.</p></td>
+                        <td><p>Masukkan kata atau kalimat pada bagian <b>Enter your text</b></p></td>
+                    </tr>
+                    <tr>
+                        <form name="fcolorFormpp">
+                        <td><p>2.</p></td>
+                        <td><p>Pilih warna background (misal merah) dengan menggeser range <input class="range" type="range" id="rangeRedBp" value="255" min="0" max="255" style="background: #f00;" /> pada kolom background</p></td>
+                        </form>
+                    </tr>
+                    <tr>
+                        <form name="fcolorFormpp">
+                        <td><p>3.</p></td>
+                        <td><p>Pilih warna font (misal biru) dengan menggeser range <input class="range" type="range" id="rangeBlueFp" value="0" min="0" max="255" style="background: #00f;" /> pada kolom font</p></td>
+                        </form>
+                    </tr>
+                    <tr>
+                        <td><p>4.</p></td>
+                        <td><p>Maha dengan otomatis kode warna RGB akan tertera pada masing-masing kolom (background dan font)</p></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="footer">
+                <p>Warnaiaja &copy 2021 &#8722; <script>document.write(new Date().getFullYear())</script></p>
+            </div>
+        </div>
+
+        <script type="text/javascript">
+            function rangeColorB() {
+                let redB = document.getElementById('rangeRedB').value;
+                let greenB = document.getElementById('rangeGreenB').value;
+                let blueB = document.getElementById('rangeBlueB').value;
+                let colorB = 'RGB(' + redB + ',' + greenB + ',' + blueB + ')';
+                document.body.style.backgroundColor = colorB;
+                document.getElementById('colorOutputB').innerHTML = colorB;
+            }
+
+            document.getElementById('rangeRedB').addEventListener('input',rangeColorB);
+            document.getElementById('rangeGreenB').addEventListener('input',rangeColorB);
+            document.getElementById('rangeBlueB').addEventListener('input',rangeColorB);
+
+            function rangeColorF() {
+                let redF = document.getElementById('rangeRedF').value;
+                let greenF = document.getElementById('rangeGreenF').value;
+                let blueF = document.getElementById('rangeBlueF').value;
+                let colorF = 'RGB(' + redF + ',' + greenF + ',' + blueF + ')';
+                document.getElementById('textInput').style.color = colorF
+                document.getElementById('colorOutputF').innerHTML = colorF;
+            }
+
+            document.getElementById('rangeRedF').addEventListener('input',rangeColorF);
+            document.getElementById('rangeGreenF').addEventListener('input',rangeColorF);
+            document.getElementById('rangeBlueF').addEventListener('input',rangeColorF);
+
+        </script>
+
+    </body>
+</html>
